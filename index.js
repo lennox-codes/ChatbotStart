@@ -27,9 +27,9 @@ app.post("/sms", (req, res) => {
     return Order.reset();
   }
 
-  // Checks to see if there is an active order, otherwise, it creates a new one
-  if (Order.custId === "") {
-    console.log("have sender");
+  // Checks to see if Order already has a custId, otherwise it adds one.
+  if (Order.custId !== "") {
+    console.log("has Sender");
     Order.custId = sender;
   }
 
