@@ -10,6 +10,8 @@ const SteakOrder = require("./menuOrders/Steak");
 // Bodyparser
 app.use(express.json());
 app.use(express.urlencoded());
+
+// Static folder
 app.use(express.static("www"));
 
 app.get("/users/:uname", (req, res) => {
@@ -21,22 +23,16 @@ app.post("/sms", (req, res) => {
   const sender = req.body.from;
   const message = req.body.body && req.body.body.toLowerCase();
 
-  // Clears everything => First important step
   if (req.body.clear) {
-    console.log(req.body);
     return Order.reset();
   }
 
-  // Checks to see if Order already has a custId, otherwise it adds one.
   if (Order.custId !== "") {
-    console.log("has Sender");
     Order.custId = sender;
   }
 
-  // Wrap this all in a switch case so that things are easier to read, goddamnit
   switch (Order.state) {
     case "welcoming":
-      console.log("Asking items to choose");
       Order.state = "selecting";
       const welcomeMessage = !Order.items.length
         ? "Welcome to Richard's Shawarma."
@@ -46,7 +42,6 @@ app.post("/sms", (req, res) => {
       break;
 
     case "selecting":
-      console.log("Selecting now");
       if (Menu.hasItem(message)) {
         Order.state = "adding";
         if (message === "shawarma") {
@@ -59,17 +54,14 @@ app.post("/sms", (req, res) => {
           Order.addItem(new SteakOrder());
           takeOrder();
         }
-      } else
-        aReply.push("Please make sure that you have selected the proper item");
+      } else aReply.push("Please make sure your selection is in the menu!");
       break;
 
     case "adding":
-      console.log("Adding");
       takeOrder();
       break;
 
     case "finished":
-      console.log("finished");
       aReply = Order.getSummary();
       break;
   }
@@ -89,7 +81,7 @@ app.post("/sms", (req, res) => {
   res.end(sResponse + "</Response>");
 });
 
-var port = process.env.PORT || parseInt(process.argv.pop()) || 3002;
+let port = process.env.PORT || parseInt(process.argv.pop()) || 3002;
 
 app.listen(port, () =>
   console.log("Example app listening on port " + port + "!")
