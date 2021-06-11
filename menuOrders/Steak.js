@@ -70,6 +70,13 @@ class SteakOrder extends OrderItem {
     }
     return messages;
   }
+
+  getTotal() {
+    let total = this.basePrice;
+    const DESSERT_PRICE = 2;
+    total += DESSERT_PRICE;
+    return (this.finalPrice = total);
+  }
 }
 
 module.exports = SteakOrder;
