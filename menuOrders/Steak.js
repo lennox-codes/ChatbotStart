@@ -74,7 +74,7 @@ class SteakOrder extends OrderItem {
   getTotal() {
     let total = this.basePrice;
     const DESSERT_PRICE = 2;
-    total += DESSERT_PRICE;
+    if (this.dessert) total += DESSERT_PRICE;
     return (this.finalPrice = total);
   }
 }
