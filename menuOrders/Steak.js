@@ -10,7 +10,7 @@ const OrderState = Object.freeze({
   ADD_ITEM: Symbol(),
 });
 
-class ShawarmaOrder extends OrderItem {
+class SteakOrder extends OrderItem {
   constructor() {
     super();
     this.state = OrderState.START;
@@ -18,6 +18,7 @@ class ShawarmaOrder extends OrderItem {
     this.sides = "";
     this.dessert = "";
     this.readiness = "";
+    this.basePrice = 12;
   }
 
   handleInput(input) {
@@ -48,6 +49,7 @@ class ShawarmaOrder extends OrderItem {
 
       case OrderState.COMPLETE:
         this.state = OrderState.ADD_ITEM;
+        this.getTotal();
         this.description = `${this.readiness}-cooked ${this.name} with ${
           this.sides
         } ${this.dessert ? "and " + this.dessert : ""}`;
@@ -70,4 +72,4 @@ class ShawarmaOrder extends OrderItem {
   }
 }
 
-module.exports = ShawarmaOrder;
+module.exports = SteakOrder;
