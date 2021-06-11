@@ -3,7 +3,7 @@ class Order {
     this.state = "welcoming";
     this.custId = "";
     this.items = [];
-    this.states = ["welcoming", "selecting", "isFinished", "moreItems"];
+    this.states = ["welcoming", "selecting", "adding", "finished"];
     this.total = 0;
 
     if (Order._instance) {
@@ -31,12 +31,12 @@ class Order {
     this.getTotal();
     let date = new Date();
     date.setMinutes(date.getMinutes() + 20);
-    const timeToPickUp = `Your Please pick up at \n${date.toTimeString()}`;
+    const timeToPickUp = `Pick up at ${date.toLocaleTimeString("en-US")}`;
 
-    let orderSummary = ["You orders are: "];
+    let orderSummary = ["Here are your order item(s): "];
     this.items.forEach((item, index) => {
       orderSummary.push(
-        `${index + 1}. ${item.description} \nPrice: ${this.formatPrice(
+        `${index + 1}) ${item.description} \nPrice: ${this.formatPrice(
           item.finalPrice
         )}`
       );

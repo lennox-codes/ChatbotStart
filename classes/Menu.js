@@ -10,10 +10,11 @@ module.exports = class Menu {
   }
 
   static listItems() {
-    let itemsList = "";
-    for (let item of this.items) {
-      itemsList += ` \n${this.items.indexOf(item) + 1}. ${item}`;
-    }
-    return itemsList;
+    let itemsList = [];
+    this.items.forEach((item, index) => {
+      itemsList.push(`${index + 1}) ${item}`);
+    });
+
+    return itemsList.join("\n");
   }
 };
