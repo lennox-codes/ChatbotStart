@@ -21,10 +21,11 @@ estimated price or ability for someone in the store to see the orders with their
 ### What I added
 
 Added pizza and steak menu items
-Added upsell of dessert for stakeOrder
+Added upsell of dessert for steak order
 Categorized each order to be separate
 Added feature to select menu item of choice
-Added feature for orderer to generate Order Summary
+Added feature to send ordere order summary
 Added necessary classes and tweaked the code here and there to my taste
+Added price estimated price feature as well
 
 There is a brief [presentation here](EventsAndObjects.pdf).
