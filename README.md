@@ -13,18 +13,18 @@ Create an order bot for your favourite food. You need to have at least 2 items o
 
 ## Marking
 
-basic order for an item in a zip (65%)
-2nd or 3rd item (up to 10%)
-up-sell item other than drinks (up to 10%)
-estimated price or ability for someone in the store to see the orders with their phone (up to 15%)
+- Basic order for an item in a zip (65%)
+- 2nd or 3rd item (up to 10%)
+- Up-sell item other than drinks (up to 10%)
+- Estimated price or ability for someone in the store to see the orders with their phone (up to 15%)
 
 ## What I added
 
-pizza and steak menu items
-upsell of dessert for steak order
-Instantiation of new Orders
-Feature to select menu item of choice
-Order summary generator
-Price estimate feature as well
+- Pizza and steak menu items
+- Upsell of dessert for steak order
+- Ability to perform instantiation of new order/menu items
+- Feature to select menu item of choice
+- Order summary generator
+- Price estimate feature
 
 There is a brief [presentation here](EventsAndObjects.pdf).
