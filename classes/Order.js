@@ -43,7 +43,7 @@ class Order {
     });
 
     orderSummary.push(
-      `The estimated price of your order is ${this.formatPrice(this.total)} `
+      `The estimated total of your order is ${this.formatPrice(this.total)} `
     );
     orderSummary.push(timeToPickUp);
 
