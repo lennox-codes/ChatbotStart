@@ -5,7 +5,7 @@ const OrderState = Object.freeze({
   START: Symbol(),
   READINESS: Symbol(),
   SIDES: Symbol(),
-  DRINKS: Symbol(),
+  DESSERT: Symbol(),
   COMPLETE: Symbol(),
   ADD_ITEM: Symbol(),
 });
@@ -13,9 +13,11 @@ const OrderState = Object.freeze({
 class ShawarmaOrder extends OrderItem {
   constructor() {
     super();
-    this.sides = "";
     this.state = OrderState.START;
     this.name = "steak";
+    this.sides = "";
+    this.dessert = "";
+    this.readiness = "";
   }
 
   handleInput(input) {
@@ -27,26 +29,28 @@ class ShawarmaOrder extends OrderItem {
         break;
       case OrderState.READINESS:
         this.state = OrderState.SIDES;
-        this.size = input;
+        this.readiness = input;
         messages.push("What sides would you like?");
+        messages.push("Your options are fries or salad.");
         break;
       case OrderState.SIDES:
-        this.state = OrderState.DRINKS;
+        this.state = OrderState.DESSERT;
         this.sides = input;
-        messages.push("Would you like drinks with that?");
-        messages.push("If yes, specify:");
-        messages.push("Your options are fanta, coke and sprite");
+        messages.push("Would you  desserts with that?");
+        messages.push("If yes, please specify");
+        messages.push(
+          "Your options are strawberry shortcake, butter biscuits and pumpkin puddings"
+        );
         break;
-      case OrderState.DRINKS:
+      case OrderState.DESSERT:
         this.state = OrderState.COMPLETE;
-        if (input.toLowerCase() !== "no") {
-          this.drinks = input;
-        } else messages.push;
+        if (input.toLowerCase() !== "no") this.dessert = input;
+
       case OrderState.COMPLETE:
         this.state = OrderState.ADD_ITEM;
-        this.description = `${this.size} ${this.name} with ${this.sides} ${
-          this.drinks ? "and a bottle of " + this.drinks : ""
-        }`;
+        this.description = `${this.readiness}-cooked ${this.name} with ${
+          this.sides
+        } ${this.dessert ? "and " + this.dessert : ""}`;
         messages.push("Added " + this.description);
         messages.push(`Would you like to order another item?`);
         messages.push(`Yes or No?`);

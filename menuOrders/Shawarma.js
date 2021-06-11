@@ -15,6 +15,9 @@ class ShawarmaOrder extends OrderItem {
   constructor() {
     super();
     this.name = "shawarma";
+    this.size = "";
+    this.toppings = "";
+    this.drinks = "";
     this.state = OrderState.START;
   }
 
@@ -39,9 +42,8 @@ class ShawarmaOrder extends OrderItem {
         break;
       case OrderState.DRINKS:
         this.state = OrderState.COMPLETE;
-        if (input.toLowerCase() !== "no") {
-          this.drinks = input;
-        } else messages.push;
+        if (input.toLowerCase() !== "no") this.drinks = input;
+
       case OrderState.COMPLETE:
         this.state = OrderState.ADD_ITEM;
         this.description = `${this.size} ${this.name} with ${this.toppings} ${
