@@ -60,11 +60,10 @@ class ShawarmaOrder extends OrderItem {
         break;
 
       case OrderState.ADD_ITEM:
-        console.log(Order);
         if (input.toLowerCase() === "yes") Order.state = "welcoming";
         else Order.state = "finished";
 
-        messages.push("Reply with OK to Confirm");
+        messages.push("Reply with Ok to confirm");
         break;
     }
     return messages;
