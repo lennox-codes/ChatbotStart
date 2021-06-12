@@ -52,7 +52,7 @@ app.post("/sms", (req, res) => {
           Order.addItem(new SteakOrder());
         }
         takeOrder();
-      } else aReply.push("Please make sure your selection is in the menu!");
+      } else aReply.push("Please make sure your selection is on the menu!");
       break;
 
     case "adding":
