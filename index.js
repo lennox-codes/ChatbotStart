@@ -46,14 +46,12 @@ app.post("/sms", (req, res) => {
         Order.state = "adding";
         if (message === "shawarma") {
           Order.addItem(new ShawarmaOrder());
-          takeOrder();
         } else if (message === "pizza") {
           Order.addItem(new PizzaOrder());
-          takeOrder();
         } else if (message === "steak") {
           Order.addItem(new SteakOrder());
-          takeOrder();
         }
+        takeOrder();
       } else aReply.push("Please make sure your selection is in the menu!");
       break;
 
