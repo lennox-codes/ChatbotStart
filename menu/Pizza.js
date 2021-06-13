@@ -1,4 +1,4 @@
-const Order = require("../classes/Order");
+const Order = require("../baseClasses/Order");
 const ShawarmaOrder = require("./Shawarma");
 
 class PizzaOrder extends ShawarmaOrder {

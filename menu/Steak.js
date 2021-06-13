@@ -1,5 +1,5 @@
-const Order = require("../classes/Order");
-const OrderItem = require("../classes/OrderItem");
+const Order = require("../baseClasses/Order");
+const OrderItem = require("../baseClasses/OrderItem");
 
 const OrderState = Object.freeze({
   START: Symbol(),
@@ -58,7 +58,6 @@ class SteakOrder extends OrderItem {
         messages.push(`Yes or No?`);
         break;
       case OrderState.ADD_ITEM:
-        console.log(Order);
         if (input.toLowerCase() === "yes") {
           Order.state = "welcoming";
           messages.push("Write OK to Confirm");
