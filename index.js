@@ -1,11 +1,11 @@
 const express = require("express");
 const app = express();
-const Order = require("./classes/Order");
-const Menu = require("./classes/Menu");
+const Order = require("./baseClasses/Order");
+const Menu = require("./baseClasses/Menu");
 
-const ShawarmaOrder = require("./menuOrders/Shawarma");
-const PizzaOrder = require("./menuOrders/Pizza");
-const SteakOrder = require("./menuOrders/Steak");
+const ShawarmaOrder = require("./menu/Shawarma");
+const PizzaOrder = require("./menu/Pizza");
+const SteakOrder = require("./menu/Steak");
 
 // Bodyparser
 app.use(express.json());
