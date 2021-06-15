@@ -37,7 +37,7 @@ class SteakOrder extends OrderItem {
       case OrderState.SIDES:
         this.state = OrderState.DESSERT;
         this.sides = input;
-        messages.push("Would you  desserts with that?");
+        messages.push("Would you like desserts with that?");
         messages.push("If yes, please specify");
         messages.push(
           "Your options are strawberry shortcake, butter biscuits and pumpkin puddings"
