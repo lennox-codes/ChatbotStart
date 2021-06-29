@@ -18,7 +18,7 @@ Create an order bot for your favourite food. You need to have at least 2 items o
 - Up-sell item other than drinks (up to 10%)
 - Estimated price or ability for someone in the store to see the orders with their phone (up to 15%)
 
-## What I added
+## My Additions
 
 - Pizza and steak menu items
 - Upsell of dessert for steak order
