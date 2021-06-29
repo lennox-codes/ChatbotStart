@@ -25,7 +25,10 @@
   },
   "homepage": "https://github.com/rhildred/es6test#readme",
   "dependencies": {
-    "express": "*"
+    "dotenv": "^10.0.0",
+    "express": "*",
+    "socket.io": "^4.1.2",
+    "underscore": "^1.13.1"
   },
   "babel": {
     "presets": [
